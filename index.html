@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harvest Moon Jakarta</title>
+  <meta name="description" content="Belanja sayuran dan buah segar berkualitas. Fresh, atau uang kembali!"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; background: #F7F8F3; }
+    #root { min-height: 100vh; }
+    #loading {
+      display: flex; align-items: center; justify-content: center;
+      height: 100vh; flex-direction: column; gap: 16px;
+      font-family: sans-serif; color: #2E7D32; font-size: 16px;
+    }
+    .spin {
+      width: 40px; height: 40px; border: 4px solid #E8F5E9;
+      border-top-color: #2E7D32; border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div id="loading">
+    <div class="spin"></div>
+    <span>Memuat Harvest Moon Jakarta...</span>
+  </div>
+  <div id="root"></div>
+  <script type="text/babel" data-type="module" src="app.jsx"></script>
+  <script>
+    // Remove loading after app mounts
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const l = document.getElementById('loading');
+        if (l) l.style.display = 'none';
+      }, 500);
+    });
+  </script>
+</body>
+</html>
